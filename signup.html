@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign Up and Registration</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/signup.css">
+    
+    
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body background="kerala\wp2783386.jpg">
+    <!-- header -->
+ <header class="head">
+    <div class="logo">
+        <img src="kerala-tourism-title.png" alt="logo" > 
+        <div class="menu">
+            <a href="index.html" target="_blank">Home</a>
+            <a href="destination.html" target="_blank">Where To Go </a>
+            <a href="thingstodo.html" target="_blank">Things To Do</a>
+            <a href="login.html" target="_blank">Login/Sign Up</a>
+        </div>
+
+    </div>
+    
+
+</header>
+<!-- header -->
+  <div class="container">   
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <!-- Sign Up form -->
+        <form action="experience.html" class="Signup" onsubmit="return validate()">
+          <h3>Sign Up Now!!!</h3>
+          <div class="form-group">
+              <label for="name">Full Name</label>
+            <input type="text" class="form-control" placeholder="Full Name" name="name" id="name" required>
+          </div>
+          <div class="form-group">
+              <label for="email">Email</label>
+            <input type="text" class="form-control" placeholder="Enter Email" name="email" id="email" required>
+          </div>      
+          <div class="form-group">
+              <label for="psw">Password</label>
+            <input type="password" class="form-control" placeholder="Enter Password" name="psw" id="psw"  required> 
+          </div>
+          <div  id="meter_wrapper">
+            <div id="meter"></div>
+           </div>   
+           <span id="pass_type"></span>
+           <br>
+          <div class="form-group">
+            <label for="psw-repeat">Repeat Password</label>
+            <input type="password" class="form-control" placeholder="Repeat Password" name="psw-repeat" id="repeat" required>
+          </div>
+          <div class="form-group">
+            <label for="ph-number">Phone Number</label>
+            <input type="number" class="form-control" placeholder="Enter Phone number" name="psw-repeat" id="ph" required>
+          </div>
+          <div class="form-group">
+            <label>Profile Photo</label>
+            <input type="file" id="Profile-pic" name="channel-img" class="form-control">
+            <label for="Profile-pic" class="choose-icon"><i class="fa fa-camera" aria-hidden="true"></i></label>
+          </div>
+          <div class="form-group">
+            <label class="term-policy"><input type="checkbox"> By creating an account you agree to our <a href="#">Terms & Privacy</a>.</label>
+          </div>
+          <button type="submit" class="btn btn-success">Signup</button>
+          <label><input type="checkbox" checked="checked" name="remember"> Remember me</label>
+          <hr>
+          <div class="form-group">
+            <p class="not-yet">Already have an account? <a href="login.html">Login</a></p>
+          </div>
+        </form>
+        <script>
+            let email = document.getElementById("email");
+let phone = document.getElementById("ph");
+let password = document.getElementById("psw");
+let repeatPsw = document.getElementById("repeat");
+
+function validate() {
+     let regexp = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+)\.([a-z]{2,8})(.[a-z]{2,8})?$/;
+     let passreg =/^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹])[a-zA-Z0-9~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]{8,16}$/;
+     
+     
+    //  let strongRegex = new RegExp("^(?=.{14,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
+    //  let enoughRegex = new RegExp("(?=.{8,}).*", "g");
+    //  let mediumRegex = new RegExp("^(?=.{10,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+   if(!regexp.test(email.value))
+    {
+       window.alert("Invalid email");
+       email.style.color = "red";
+        return false;
+    }
+
+   if(phone.value.length!=10)
+    {
+        window.alert("Invalid number");
+       return false;
+    }
+
+
+//     if(!passreg.test(password.value)) {
+//     //    showError(password.value,'Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)');
+//         window.alert("Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)");
+//         // window.alert("password ok");
+//         password.style.color = "red";
+//         return false;
+//    }
+   
+
+// else if (strongRegex.test(password.value)) {
+//     password.innerHTML = '<span style="color:green">Strong!</span>';
+// } else if (mediumRegex.test(password.value)) {
+//     password.innerHTML = '<span style="color:orange">Medium!</span>';
+// } else {
+//     password.innerHTML = '<span style="color:red">Weak!</span>';
+// }
+
+
+if(password.value!=repeatPsw.value){
+    alert("Both passwords are not the same");
+    repeatPsw.style.color = "red";
+    return false;
+ }
+   else{
+    
+       alert("You are succssfully Registerd");
+    return true;
+   }
+}
+        $(document).ready(function(){
+          $("#psw").keyup(function(){
+           check_pass();
+          });
+         });
+         
+         function check_pass()
+         {
+          var val=document.getElementById("psw").value;
+          var meter=document.getElementById("meter");
+          var no=0;
+          if(val!="")
+          {
+           // If the password length is less than or equal to 8
+           if(val.length<=8)no=1;
+         
+           // If the password length is greater than 8 and contain any lowercase alphabet or any number or any special character
+           if(val.length>8 && (val.match(/[a-z]/) || val.match(/\d+/) || val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)))no=2;
+         
+           // If the password length is greater than 8 and contain alphabet,number,special character respectively
+           if(val.length>8 && ((val.match(/[a-z]/) && val.match(/\d+/)) || (val.match(/\d+/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)) || (val.match(/[a-z]/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/))))no=3;
+         
+           // If the password length is greater than 8 and must contain alphabets,numbers and special characters
+           if(val.length>8 && val.match(/[a-z]/) && val.match(/\d+/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/))no=4;
+         
+           if(no==1)
+           {
+            $("#meter").animate({width:'50px'},300);
+            meter.style.backgroundColor="red";
+            document.getElementById("pass_type").innerHTML="Very Weak";
+           }
+         
+           if(no==2)
+           {
+            $("#meter").animate({width:'100px'},300);
+            meter.style.backgroundColor="#F5BCA9";
+            document.getElementById("pass_type").innerHTML="Weak";
+           }
+         
+           if(no==3)
+           {
+            $("#meter").animate({width:'150px'},300);
+            meter.style.backgroundColor="#FF8000";
+            document.getElementById("pass_type").innerHTML="Good";
+           }
+         
+           if(no==4)
+           {
+            $("#meter").animate({width:'200px'},300);
+            meter.style.backgroundColor="#00FF40";
+            document.getElementById("pass_type").innerHTML="Strong";
+           }
+          }
+         
+          else
+          {
+           meter.style.backgroundColor="white";
+           document.getElementById("pass_type").innerHTML="";
+          }
+         }
+         </script>
+         
+      </div>
+    </div>
+  </div>
+</body>
+</html>
